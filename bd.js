@@ -1,20 +1,13 @@
-
 const express = require('express');
 const mysql = require('mysql');
 const bodyParser = require('body-parser');
-const path = require('path'); // Importa el módulo path
-
-
 const app = express();
-const port = 3000;
-
-
 
 // Configurar el middleware
 app.use(bodyParser.json()); // Para analizar JSON en las solicitudes
 
 // Servir archivos estáticos desde la carpeta actual
-app.use(express.static(__dirname)); // __dirname se refiere a la carpeta actual
+app.use(express.static(__dirname)); 
 
 // Configuración de la conexión a MySQL
 
@@ -53,17 +46,6 @@ app.post('/login', (req, res) => {
   });
 });
 
-
-// app.get('/roles', (req, res) => {
-//   conexion.query('SELECT * FROM roles', (err, results) => {
-//       if (err) {
-//           return res.status(500).json({ error: 'Error en el servidor' });
-//       }
-//       res.json(results);
-//   });
-// });
-
-
 app.post('/register', (req, res) => {
   const { nombre, email, password } = req.body;
   console.log('Datos recibidos para registro:', req.body); // Log de datos recibidos
@@ -79,14 +61,8 @@ app.post('/register', (req, res) => {
   });
 });
 
-
-
-
-
 // Iniciar el servidor
 const PORT = 3000;
 app.listen(PORT, () => {
     console.log(`Servidor escuchando en http://localhost:${PORT}`);
 });
-
-
