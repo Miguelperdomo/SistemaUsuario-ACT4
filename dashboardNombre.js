@@ -1,5 +1,3 @@
-// Este archivo se ejecutará en el cliente y no en el servidor
-
 document.getElementById('loginForm').addEventListener('submit', function(event) {
     event.preventDefault(); 
 
@@ -22,7 +20,7 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
     .then(data => {
         console.log('Inicio de sesión exitoso', data);
         localStorage.setItem('nombreUsuario', data.nombreUsuario);
-        console.log('Nombre de usuario almacenado:', data.nombreUsuario); // Agrega este log
+        console.log('Nombre de usuario almacenado:', data.nombreUsuario); 
         window.location.href = 'dashboard.html'; 
     })
     .catch(error => {
